@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compare Phones — PhoneSphere</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <div class="topbar">🇧🇩 Serving Bangladesh's smartphone buyers </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">P</div>
+        <span>Phone<em>Sphere</em></span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="compare.html" class="nav-link active">Compare</a>
+        <a href="pages/about.html" class="nav-link">About</a>
+        <a href="pages/contact.html" class="nav-link">Contact</a>
+      </nav>
+      <button class="compare-badge-btn" id="compareBadgeWrap" onclick="window.location.href='compare.html'" style="display:none;">
+        ⇄ Compare <span class="cbb-count" id="compareBadgeCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="compare-hero">
+    <div class="container">
+      <h1>Side-by-Side <em>Comparison</em></h1>
+      <p>Select up to 3 phones and compare their full specifications head to head.</p>
+    </div>
+  </section>
+
+  <section class="compare-section">
+    <div class="container">
+
+      <div class="compare-slots" id="compareSlots">
+        <div class="c-slot" id="slot-0">
+          <div class="slot-empty">
+            <span class="plus">+</span>
+            <p>Add Phone 1</p>
+            <select onchange="addPhoneToSlot(0, this.value)">
+              <option value="">— Select Phone —</option>
+            </select>
+          </div>
+        </div>
+        <div class="c-slot" id="slot-1">
+          <div class="slot-empty">
+            <span class="plus">+</span>
+            <p>Add Phone 2</p>
+            <select onchange="addPhoneToSlot(1, this.value)">
+              <option value="">— Select Phone —</option>
+            </select>
+          </div>
+        </div>
+        <div class="c-slot" id="slot-2">
+          <div class="slot-empty">
+            <span class="plus">+</span>
+            <p>Add Phone 3</p>
+            <select onchange="addPhoneToSlot(2, this.value)">
+              <option value="">— Select Phone —</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div id="compareTableWrap" style="display:none;">
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <thead id="cmpHead"></thead>
+            <tbody id="cmpBody"></tbody>
+          </table>
+        </div>
+        <div class="compare-clear">
+          <button onclick="clearComparison()">Clear All</button>
+        </div>
+      </div>
+
+      <div id="compareEmpty" class="compare-empty">
+        <div class="cei">⚖️</div>
+        <h3>Nothing to compare yet</h3>
+        <p>Select phones above, or add them from the <a href="index.html">Browse</a> page.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <p>© 2024 <strong>PhoneSphere</strong>. All rights reserved.</p>
+        <p><a href="index.html" style="color:rgba(255,255,255,0.4);font-size:0.78rem">← Back to Home</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/compare.js"></script>
+</body>
+</html>

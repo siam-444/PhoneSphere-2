@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us — PhoneSphere</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+  <div class="topbar">🇧🇩 Serving Bangladesh's smartphone buyers </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-mark">P</div>
+        <span>Phone<em>Sphere</em></span>
+      </a>
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../compare.html" class="nav-link">Compare</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="inner-page-hero">
+    <h1>Get In Touch</h1>
+    <p>Have a question, found incorrect data, or want to suggest a phone? We're happy to hear from you.</p>
+  </section>
+
+  <div class="inner-page-content">
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+
+        
+
+        <div class="ci-item">
+          <div class="ci-icon">📧</div>
+          <div class="ci-text">
+            <h4>Email</h4>
+            <p>hello@phonesphere.com.bd<br/>support@phonesphere.com.bd</p>
+          </div>
+        </div>
+
+      
+
+        <div class="ci-item">
+          <div class="ci-icon">💬</div>
+          <div class="ci-text">
+            <h4>What You Can Contact Us About</h4>
+            <p>Incorrect phone specs or prices, missing phones, website bugs, partnership inquiries, or general feedback.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form" id="contactFormWrap">
+        <h3 style="font-family:var(--ff-head);font-size:1.1rem;font-weight:800;margin-bottom:20px;">Send Us a Message</h3>
+
+        <div class="cf-group">
+          <label>Your Name</label>
+          <input type="text" id="cf-name" placeholder="e.g. Rafiq Ahmed" />
+        </div>
+        <div class="cf-group">
+          <label>Email Address</label>
+          <input type="email" id="cf-email" placeholder="your@email.com" />
+        </div>
+        <div class="cf-group">
+          <label>Subject</label>
+          <select id="cf-subject">
+            <option value="">Select a subject…</option>
+            <option>Incorrect Phone Data</option>
+            <option>Missing Phone</option>
+            <option>Website Bug</option>
+            <option>Partnership Inquiry</option>
+            <option>General Feedback</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="cf-group">
+          <label>Message</label>
+          <textarea id="cf-message" rows="5" placeholder="Tell us what's on your mind…"></textarea>
+        </div>
+
+        <button class="cf-submit" onclick="submitForm()">Send Message →</button>
+        <div class="form-success" id="formSuccess">
+          ✅ Thank you! Your message has been received. We'll get back to you within 24–48 hours.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <p>© 2024 <strong>PhoneSphere</strong>. All rights reserved.</p>
+        <p><a href="../index.html" style="color:rgba(255,255,255,0.4);font-size:0.78rem">← Back to Home</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function submitForm() {
+      const name    = document.getElementById("cf-name").value.trim();
+      const email   = document.getElementById("cf-email").value.trim();
+      const subject = document.getElementById("cf-subject").value;
+      const message = document.getElementById("cf-message").value.trim();
+
+      if (!name || !email || !subject || !message) {
+        alert("Please fill in all fields before submitting.");
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      // Simulate form submission
+      const btn = document.querySelector(".cf-submit");
+      btn.textContent = "Sending…";
+      btn.disabled = true;
+      setTimeout(() => {
+        document.getElementById("formSuccess").style.display = "block";
+        btn.style.display = "none";
+        ["cf-name","cf-email","cf-message"].forEach(id => document.getElementById(id).value = "");
+        document.getElementById("cf-subject").value = "";
+      }, 1200);
+    }
+  </script>
+</body>
+</html>
